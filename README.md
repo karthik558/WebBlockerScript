@@ -6,8 +6,9 @@
 ![](https://img.shields.io/github/license/karthik558/WebBlockerScript?style=for-the-badge)
 ![](https://img.shields.io/github/forks/karthik558/WebBlockerScript?style=for-the-badge)
 ![](https://img.shields.io/github/stars/karthik558/WebBlockerScript?style=for-the-badge)
-![](https://img.shields.io/github/issues/karthik558/WebBlockerScript?style=for-the-badge)
+![](https://img.shields.io/github/release/karthik558/WebBlockerScript?style=for-the-badge)
 ![](https://img.shields.io/github/languages/code-size/karthik558/WebBlockerScript?style=for-the-badge)
+![](https://img.shields.io/github/downloads/karthik558/WebBlockerScript/total?style=for-the-badge)
 
 ## Table of Contents
 - [About](#about)
