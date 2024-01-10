@@ -64,6 +64,7 @@ echo 6. Restore Host File (Default)
 echo 7. Check Host File
 echo 8. Flush DNS Cache
 echo 9. Exit
+echo 10. Whatsapp Unblock (Experimental)
 echo.
 set /p option="Enter your selection: "
 
@@ -76,6 +77,7 @@ if "%option%"=="6" goto RESTORE_HOST
 if "%option%"=="7" goto VIEW_HOST
 if "%option%"=="8" goto FLUSHDNS
 if "%option%"=="9" goto DONE
+if "%option%"=="10" goto WHATSAPP_UNBLOCK
 echo Invalid option.
 goto MENU
 
@@ -206,6 +208,27 @@ echo.
 echo Flushing DNS cache...
 ipconfig /flushdns >nul
 echo DNS cache flushed successfully.
+timeout 2
+goto MENU
+
+:WHATSAPP_UNBLOCK
+color 0A
+@REM  Unblock whatsapp from the list
+findstr /i /c:"%comment%" "%host%" >nul 2>&1
+if %errorlevel%==0 (
+  REM Remove all lines that match the comment header
+  findstr /i /v /c:"%comment%" "%host%" >"%host%.tmp"
+  
+  REM Remove the remaining lines that contain blocked websites
+  for %%i in (web.whatsapp.com www.web.whatsapp.com) do (
+    findstr /i /v /c:"%%i" "%host%.tmp" >"%host%.tmp2"
+    move /y "%host%.tmp2" "%host%.tmp" >nul
+  )
+  
+  REM Replace the original file with the modified file
+  move /y "%host%.tmp" "%host%" >nul
+)
+echo Websites unblocked successfully. (Experimental)
 timeout 2
 goto MENU
 
